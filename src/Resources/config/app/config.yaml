@@ -1,0 +1,21 @@
+imports:
+    - "resources/*.yaml"
+
+
+doctrine_migrations:
+    migrations_paths:
+        'Asdoria\SyliusProductDocumentPlugin\Migrations': '@AsdoriaProductDocumentBundle/Migrations'
+
+sylius_ui:
+    events:
+        sylius.shop.product.show.content:
+            blocks:
+                asdoria_shop_product_show_documents:
+                    template: '@AsdoriaSyliusProductDocumentPlugin/Shop/Product/Show/_documents.html.twig'
+                    context: {}
+                    priority: 30
+
+framework:
+    serializer:
+        mapping:
+            paths: ['%kernel.project_dir%/vendor/asdoria-sylius-product-document-plugin/Resources/config/serialization']

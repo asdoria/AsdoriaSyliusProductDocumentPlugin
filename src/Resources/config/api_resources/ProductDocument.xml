@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+
+<resources xmlns="https://api-platform.com/schema/metadata"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="https://api-platform.com/schema/metadata https://api-platform.com/schema/metadata/metadata-2.0.xsd"
+>
+    <resource class="%asdoria.model.product_document.class%" shortName="ProductDocument">
+        <attribute name="validation_groups">sylius</attribute>
+
+        <attribute name="normalization_context">
+            <attribute name="groups">
+                <attribute>admin:product_document:read</attribute>
+            </attribute>
+        </attribute>
+
+        <collectionOperations>
+            <collectionOperation name="admin_get">
+                <attribute name="method">GET</attribute>
+                <attribute name="path">/admin/product-documents</attribute>
+            </collectionOperation>
+
+            <collectionOperation name="admin_post">
+                <attribute name="method">POST</attribute>
+                <attribute name="path">/admin/product-documents</attribute>
+                <attribute name="denormalization_context">
+                    <attribute name="groups">admin:product_document:create</attribute>
+                </attribute>
+            </collectionOperation>
+        </collectionOperations>
+
+        <itemOperations>
+            <itemOperation name="admin_get">
+                <attribute name="method">GET</attribute>
+                <attribute name="path">/admin/product-documents/{id}</attribute>
+            </itemOperation>
+            <itemOperation name="shop_get">
+                <attribute name="method">GET</attribute>
+                <attribute name="path">/shop/product-documents/{id}</attribute>
+            </itemOperation>
+        </itemOperations>
+
+        <property name="id" identifier="true" writable="false" />
+        <property name="path" required="true" writable="true" />
+        <property name="type" writable="true" />
+        <property name="updatedAt" />
+        <property name="createdAt" />
+    </resource>
+</resources>

@@ -1,0 +1,11 @@
+sylius:
+    ui:
+        documents: Documents
+        download_documents: Télécharger les documents
+    form:
+        product:
+            documents: Documents
+        document:
+            type: Type
+            file: Fichier
+            preview: Voir le document

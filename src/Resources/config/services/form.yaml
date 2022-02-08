@@ -1,0 +1,16 @@
+parameters:
+    sylius.form.type.product_document.validation_groups: [asdoria_product_document]
+
+services:
+    asdoria_product_document.form.extension.type.product:
+        class: Asdoria\SyliusProductDocumentPlugin\Form\Extension\ProductTypeExtension
+        tags:
+            - { name: form.type_extension, extended_type: Sylius\Bundle\ProductBundle\Form\Type\ProductType }
+
+    asdoria_product_document.form.type.product_document:
+        class: Asdoria\SyliusProductDocumentPlugin\Form\Type\ProductDocumentType
+        arguments:
+            $dataClass: '%asdoria.model.product_document.class%'
+            $validationGroups: '%sylius.form.type.product_document.validation_groups%'
+        tags:
+            - { name: form.type }

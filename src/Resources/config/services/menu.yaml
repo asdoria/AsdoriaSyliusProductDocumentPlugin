@@ -1,0 +1,5 @@
+services:
+    asdoria_product_document.menu.listener.product_form_menu:
+        class: Asdoria\SyliusProductDocumentPlugin\Menu\ProductFormMenuListener
+        tags:
+            - { name: kernel.event_listener, event: !php/const Sylius\Bundle\AdminBundle\Menu\ProductFormMenuBuilder::EVENT_NAME, method: "addItems" }

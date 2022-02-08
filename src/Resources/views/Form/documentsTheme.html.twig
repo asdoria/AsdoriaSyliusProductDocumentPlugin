@@ -1,0 +1,13 @@
+{% block asdoria_product_document_widget %}
+    {{ form_widget(form) }}
+
+    {% if form.vars.data is not empty and form.vars.data.path is not empty %}
+        <a href="{{ form.vars.data.path|getDocumentPath }}"
+           class="ui labeled icon button primary"
+           style="margin-top: 1.5rem"
+           target="_blank">
+            <i class="eye icon"></i>
+            {{ 'sylius.form.document.preview'|trans }}
+        </a>
+    {% endif %}
+{% endblock %}

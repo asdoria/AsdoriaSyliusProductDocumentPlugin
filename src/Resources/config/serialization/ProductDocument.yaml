@@ -1,0 +1,40 @@
+Asdoria\SyliusProductDocumentPlugin\Entity\ProductDocument:
+    attributes:
+        id:
+            groups:
+                - admin:product:read
+                - shop:product:read
+                - admin:product_document:read
+                - admin:product_document:create
+        path:
+            groups:
+                - admin:product:read
+                - shop:product:read
+                - admin:product:create
+                - admin:product:update
+                - admin:product_document:read
+                - admin:product_document:create
+        type:
+            groups:
+                - admin:product:read
+                - shop:product:read
+                - admin:product:create
+                - admin:product:update
+                - admin:product_document:read
+                - admin:product_document:create
+        updatedAt:
+            groups:
+                - admin:product:read
+                - shop:product:read
+                - admin:product:create
+                - admin:product:update
+                - admin:product_document:read
+                - admin:product_document:create
+        createdAt:
+            groups:
+                - admin:product:read
+                - shop:product:read
+                - admin:product:create
+                - admin:product:update
+                - admin:product_document:read
+                - admin:product_document:create
