@@ -1,5 +1,5 @@
 {
-    "name": "asdoria/sylius-product-document-bundle",
+    "name": "asdoria/sylius-product-document-plugin",
     "type": "symfony-bundle",
     "description": "Asdoria Product Document",
     "license": "MIT",
