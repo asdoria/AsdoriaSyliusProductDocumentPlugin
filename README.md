@@ -95,11 +95,5 @@ Add to Product mapping
 </one-to-many>
 ```
 
-## Usage
-
-1. In the back office, under `Catalog`, enter `Pictogram Groups`. Create a group using a unique code
-2. In `Pictogram Groups`, click `Managing Pictograms` to create/delete images for this group
-3. Go to a product's edit page, then click the `Pictograms` tab in the sidebar. Here you can toggle which pictograms you wish to display
-
 
 
