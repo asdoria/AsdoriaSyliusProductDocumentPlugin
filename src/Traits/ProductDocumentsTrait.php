@@ -6,16 +6,20 @@ namespace Asdoria\SyliusProductDocumentPlugin\Traits;
 use Asdoria\SyliusProductDocumentPlugin\Model\ProductDocumentInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Trait ProductDocumentsAwareTrait
- * @package Asdoria\SyliusProductDocumentPlugin\Traits
  *
- * @author  Hugo Duval <hugo.duval@asdoria.com>
  */
-trait ProductDocumentsAwareTrait
+trait ProductDocumentsTrait
 {
     /**
+     * @var Collection
+     *
+     * @ORM\OneToMany(
+     *      targetEntity="Asdoria\SyliusProductDocumentPlugin\Model\ProductDocumentInterface",
+     *      mappedBy="product",
+     *      cascade={"all"})
      * @var ProductDocumentInterface[]|Collection
      */
     protected $productDocuments;

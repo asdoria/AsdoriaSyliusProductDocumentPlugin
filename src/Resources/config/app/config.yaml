@@ -4,7 +4,7 @@ imports:
 
 doctrine_migrations:
     migrations_paths:
-        'Asdoria\SyliusProductDocumentPlugin\Migrations': '@AsdoriaProductDocumentBundle/Migrations'
+        'Asdoria\SyliusProductDocumentPlugin\Migrations': '@AsdoriaSyliusProductDocumentPlugin/Migrations'
 
 sylius_ui:
     events:
@@ -18,4 +18,14 @@ sylius_ui:
 framework:
     serializer:
         mapping:
-            paths: ['%kernel.project_dir%/vendor/asdoria-sylius-product-document-plugin/Resources/config/serialization']
+            paths: ['%kernel.project_dir%/vendor/asdoria/sylius-product-document-plugin/src/Resources/config/serialization']
+
+knp_gaufrette:
+    adapters:
+        sylius_document:
+            local:
+                directory: "%kernel.project_dir%/public/media/document"
+                create: true
+    filesystems:
+        sylius_document:
+            adapter: sylius_document

@@ -29,7 +29,7 @@ class ProductTypeExtension extends AbstractTypeExtension
                 'allow_add'     => true,
                 'allow_delete'  => true,
                 'by_reference'  => false,
-                'label'         => 'sylius.form.product.documents',
+                'label'         => 'asdoria.form.product.documents',
                 'block_name'    => 'entry',
             ]);
     }

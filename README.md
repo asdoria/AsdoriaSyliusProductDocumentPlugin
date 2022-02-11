@@ -19,7 +19,7 @@
 "repositories": [
     {
         "type": "git",
-        "url": "https://github.com/ygasdoria/AsdoriaSyliusProductDocumentPlugin.git"
+        "url": "https://github.com/asdoria/AsdoriaSyliusProductDocumentPlugin.git"
     }
 ],
 ```
@@ -32,12 +32,6 @@
 Asdoria\SyliusProductDocumentPlugin\AsdoriaSyliusProductDocumentPlugin::class => ['all' => true],
 ```
 
-4. Import LiipImagine routes in `config/routes.yaml`
-
-```yaml
-_liip_imagine:
-    resource: "@LiipImagineBundle/Resources/config/routing.yaml"
-```
 
 5. Import config in `config/packages/_sylius.yaml`
 ```yaml
@@ -56,7 +50,7 @@ use Sylius\Component\Core\Model\Product as BaseProduct;
 
 class Product extends BaseProduct implements ProductInterface
 {
-    use ProductDocumentsAwareTrait;
+    use ProductDocumentsTrait;
 
     public function __construct()
     {
@@ -86,7 +80,7 @@ class Product extends BaseProduct implements ProductInterface
     }
 }
 ```
-Add to Product mapping
+Add to Product xml mapping
 ```XML
 <one-to-many field="productDocuments" target-entity="Asdoria\SyliusProductDocumentPlugin\Model\ProductDocumentInterface" mapped-by="product" orphan-removal="true">
     <cascade>

@@ -1,29 +1,35 @@
 <?php
+
+/*
+ * This file is part of the Sylius package.
+ *
+ * (c) Paweł Jędrzejewski
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace Asdoria\SyliusProductDocumentPlugin\EventListener;
 
-use Asdoria\SyliusProductDocumentPlugin\Model\Aware\ProductDocumentsAwareInterface;
+use Asdoria\SyliusProductDocumentPlugin\Model\DocumentsAwareInterface;
 use Asdoria\SyliusProductDocumentPlugin\Uploader\UploaderInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Webmozart\Assert\Assert;
 
 /**
- * Class ProductDocumentsUploadListener
- * @package Asdoria\SyliusProductDocumentPlugin\EventListener
- *
- * @author  Hugo Duval <hugo.duval@asdoria.com>
+ * Class DocumentsUploadListener
+ * @package Asdoria\Bundle\MediaBundle\EventListener
  */
-class ProductDocumentsUploadListener
+class DocumentsUploadListener
 {
     /**
      * @var UploaderInterface
      */
-    protected $uploader;
+    private $uploader;
 
     /**
-     * ProductDocumentUploadListener constructor.
-     *
      * @param UploaderInterface $uploader
      */
     public function __construct(UploaderInterface $uploader)
@@ -37,23 +43,23 @@ class ProductDocumentsUploadListener
     public function uploadDocuments(GenericEvent $event): void
     {
         $subject = $event->getSubject();
-        Assert::isInstanceOf($subject, ProductDocumentsAwareInterface::class);
+        Assert::isInstanceOf($subject, DocumentsAwareInterface::class);
 
         $this->uploadSubjectDocuments($subject);
     }
 
     /**
-     * @param ProductDocumentsAwareInterface $subject
+     * @param DocumentsAwareInterface $subject
      */
-    private function uploadSubjectDocuments(ProductDocumentsAwareInterface $subject): void
+    private function uploadSubjectDocuments(DocumentsAwareInterface $subject): void
     {
-        $documents = $subject->getProductDocuments();
+        $documents = $subject->getDocuments();
         foreach ($documents as $document) {
             if ($document->hasFile()) {
                 $this->uploader->upload($document);
             }
 
-            // Upload failed? Let's remove that image.
+            // Upload failed? Let's remove that document.
             if (null === $document->getPath()) {
                 $documents->removeElement($document);
             }
