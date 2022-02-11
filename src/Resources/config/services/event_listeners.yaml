@@ -2,17 +2,14 @@ services:
     asdoria_product_document.listener.product_document_upload:
         class: Asdoria\SyliusProductDocumentPlugin\EventListener\ProductDocumentsUploadListener
         arguments:
-            $uploader: '@asdoria.media.document_uploader'
+            $uploader: '@asdoria_product_document.media.document_uploader'
         tags:
             - { name: kernel.event_listener, event: sylius.product.pre_create, method: uploadDocuments }
             - { name: kernel.event_listener, event: sylius.product.pre_update, method: uploadDocuments }
 
     asdoria_product_document.listener.product_document_remove:
-#        TODO fix mediabundle call
-        class: Asdoria\Bundle\MediaBundle\EventListener\RemoveListener
+        class: Asdoria\SyliusProductDocumentPlugin\EventListener\RemoveListener
         arguments:
-            $uploader: '@asdoria.media.document_uploader'
-            $cacheManager: '@liip_imagine.cache.manager'
-            $filterManager: '@liip_imagine.filter.manager'
+            $uploader: '@asdoria_product_document.media.document_uploader'
         tags:
             - { name: doctrine.event_listener, event: postRemove, method: postRemove, entity: Asdoria\SyliusProductDocumentPlugin\Model\ProductDocumentInterface }

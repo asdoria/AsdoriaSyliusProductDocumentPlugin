@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace Asdoria\SyliusProductDocumentPlugin\Entity;
 
-//TODO Fix MediaBundle import
-use Asdoria\Bundle\MediaBundle\Model\Document;
 use Asdoria\SyliusProductDocumentPlugin\Model\ProductDocumentInterface;
 use Asdoria\SyliusProductDocumentPlugin\Traits\ProductAwareTrait;
 use Doctrine\Common\Collections\ArrayCollection;
