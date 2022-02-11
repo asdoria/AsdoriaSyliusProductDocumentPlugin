@@ -46,9 +46,10 @@ namespace App\Entity\Product;
 use App\Model\ProductInterface;
 use Asdoria\SyliusProductDocumentPlugin\Model\ProductDocumentInterface;
 use Asdoria\SyliusProductDocumentPlugin\Traits\ProductDocumentsAwareTrait;
+use Asdoria\SyliusProductDocumentPlugin\Model\Aware\ProductDocumentsAwareInterface;
 use Sylius\Component\Core\Model\Product as BaseProduct;
 
-class Product extends BaseProduct implements ProductInterface
+class Product extends BaseProduct implements ProductInterface, ProductDocumentsAwareInterface
 {
     use ProductDocumentsTrait;
 
