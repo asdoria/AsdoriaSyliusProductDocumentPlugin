@@ -29,3 +29,4 @@ knp_gaufrette:
     filesystems:
         sylius_document:
             adapter: sylius_document
+
