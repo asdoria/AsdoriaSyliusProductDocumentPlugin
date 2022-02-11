@@ -21,7 +21,7 @@ class ProductFormMenuListener
         $event->getMenu()
             ->addChild('documents')
             ->setAttribute('template', '@AsdoriaSyliusProductDocumentPlugin/Product/Tab/_document.html.twig')
-            ->setLabel('sylius.ui.documents')
+            ->setLabel('asdoria.ui.documents')
         ;
     }
 }

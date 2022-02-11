@@ -3,8 +3,7 @@ declare(strict_types=1);
 
 namespace Asdoria\SyliusProductDocumentPlugin\Form\Type;
 
-//TODO Fix MediaBundle call
-use Asdoria\Bundle\MediaBundle\Form\Type\DocumentType;
+
 
 /**
  * Class ProductDocumentType
