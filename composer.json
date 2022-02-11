@@ -13,7 +13,6 @@
     "prefer-stable": true,
     "require": {
         "php": "^7.3",
-        "asdoria/media-bundle": "^0.5",
         "sylius/product-bundle": "^1.8",
         "sylius/sylius": "^1.9",
         "symfony/dotenv": "^5.4"
@@ -27,12 +26,6 @@
             "gitlab.asdoria.org"
         ]
     },
-    "repositories": [
-        {
-            "type": "gitlab",
-            "url": "https://gitlab.asdoria.org/asdoria/asdoriabundles/AsdoriaMediaBundle"
-        }
-    ],
     "extra": {
         "branch-alias": {
             "dev-master": "1.10-dev"
