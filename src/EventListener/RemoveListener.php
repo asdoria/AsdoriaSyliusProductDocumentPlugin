@@ -20,7 +20,9 @@ use Liip\ImagineBundle\Imagine\Filter\FilterManager;
 
 /**
  * Class RemoveListener
- * @package Asdoria\Bundle\MediaBundle\EventListener
+ * @package Asdoria\SyliusProductDocumentPlugin\EventListener
+ *
+ * @author  Philippe Vesin <pve.asdoria@gmail.com>
  */
 class RemoveListener
 {

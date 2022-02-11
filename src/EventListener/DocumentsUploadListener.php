@@ -20,7 +20,9 @@ use Webmozart\Assert\Assert;
 
 /**
  * Class DocumentsUploadListener
- * @package Asdoria\Bundle\MediaBundle\EventListener
+ * @package Asdoria\SyliusProductDocumentPlugin\EventListener
+ *
+ * @author  Philippe Vesin <pve.asdoria@gmail.com>
  */
 class DocumentsUploadListener
 {

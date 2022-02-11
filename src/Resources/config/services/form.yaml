@@ -1,5 +1,5 @@
 parameters:
-    sylius.form.type.product_document.validation_groups: [asdoria_product_document]
+    sylius.form.type.product_document.validation_groups: [asdoria_product_document, sylius]
 
 services:
     asdoria_product_document.form.extension.type.product:
