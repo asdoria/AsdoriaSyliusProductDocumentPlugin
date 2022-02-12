@@ -1,0 +1,9 @@
+sylius_admin_product_document_download_file:
+    path: /product-documents/{id}/download
+    methods: [ GET ]
+    defaults:
+        _controller: asdoria.controller.product_document:downloadAction
+        _sylius:
+            section: admin
+    options:
+        expose: true

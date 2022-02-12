@@ -1,0 +1,9 @@
+{
+  "entrypoints": {
+    "admin-product-document": {
+      "js": [
+        "/bundles/asdoriasyliusproductdocumentplugin/admin-product-document.min.js"
+      ]
+    }
+  }
+}

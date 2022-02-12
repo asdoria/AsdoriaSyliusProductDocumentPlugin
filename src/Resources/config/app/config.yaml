@@ -1,7 +1,3 @@
-imports:
-    - "resources/*.yaml"
-
-
 doctrine_migrations:
     migrations_paths:
         'Asdoria\SyliusProductDocumentPlugin\Migrations': '@AsdoriaSyliusProductDocumentPlugin/Migrations'
@@ -14,6 +10,17 @@ sylius_ui:
                     template: '@AsdoriaSyliusProductDocumentPlugin/Shop/Product/Show/_documents.html.twig'
                     context: {}
                     priority: 30
+        sylius.admin.product.update.javascripts:
+            blocks:
+                asdoria_documents_javascripts:
+                    template: "@AsdoriaSyliusProductDocumentPlugin/Admin/_javascripts.html.twig"
+                    priority: 15
+        sylius.admin.product.create.javascripts:
+            blocks:
+                asdoria_documents_javascripts:
+                    template: "@AsdoriaSyliusProductDocumentPlugin/Admin/_javascripts.html.twig"
+                    priority: 15
+
 
 framework:
     serializer:

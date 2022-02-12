@@ -26,8 +26,10 @@ class AsdoriaSyliusProductDocumentExtension extends AbstractResourceExtension
     public function load(array $configs, ContainerBuilder $container)
     {
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
-        
+
         $config = $this->processConfiguration($this->getConfiguration([], $container), $configs);
+
+        $this->registerResources('asdoria', $config['driver'], $config['resources'], $container);
 
         $container->setParameter('asdoria_product_document.media.document_uploader', $config['uploader'] ?? Uploader::class);
         $container->setParameter('asdoria_product_document.media.document_uploader.filesystem', 'sylius_document');

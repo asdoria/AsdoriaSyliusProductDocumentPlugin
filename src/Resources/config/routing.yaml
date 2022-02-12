@@ -1,0 +1,3 @@
+asdoria_admin_product_document:
+    resource: "routes/admin.yaml"
+    prefix: '/%sylius_admin.path_name%'

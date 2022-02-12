@@ -1,0 +1,20 @@
+{% extends '@SyliusUi/Form/imagesTheme.html.twig' %}
+
+{% block asdoria_product_document_widget %}
+    {% apply spaceless %}
+        {{ form_row(form.type) }}
+        {% if form.vars.value.path|default(null) is not null %}
+            <canvas id="document" class="ui small bordered image" style="display: block;" data-path="{{ path('sylius_admin_product_document_download_file', {'id' : form.vars.value.id}) }}" ></canvas>
+        {% endif %}
+        <label for="{{ form.file.vars.id }}" class="ui icon labeled button">
+            <i class="cloud upload icon"></i> {{ 'sylius.ui.choose_file'|trans }}
+        </label>
+
+        <div class="ui hidden element">
+            {{ form_widget(form.file) }}
+        </div>
+        <div class="ui element">
+            {{- form_errors(form.file) -}}
+        </div>
+    {% endapply %}
+{% endblock %}
