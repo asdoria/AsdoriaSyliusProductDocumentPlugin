@@ -31,7 +31,6 @@ class ProductTest extends TestCase
         $product->removeProductDocument($productDocument);
         $this->assertEmpty($product->getProductDocuments());
 
-        $product->setProductDocuments();
     }
 
     public function testAddDocumentCollectionToProduct()
