@@ -3,7 +3,10 @@ declare(strict_types=1);
 
 namespace Tests\Asdoria\SyliusProductDocumentPlugin\PHPUnit\Entity;
 
+use App\Entity\Product\Product;
+use Asdoria\SyliusProductDocumentPlugin\Entity\DocumentType;
 use Asdoria\SyliusProductDocumentPlugin\Entity\ProductDocument;
+use Gedmo\Translatable\Entity\Translation;
 use PHPUnit\Framework\TestCase;
 use Sylius\Component\Core\Model\ProductVariant;
 
@@ -16,32 +19,42 @@ use Sylius\Component\Core\Model\ProductVariant;
  */
 class ProductDocumentTest extends TestCase
 {
-    /** @var ProductVariant */
-private $productVariant;
-
-    public function setUp(): void
+    public function testCreateDocumentType()
     {
-        $this->productVariant = new ProductVariant();
-        $this->productVariant->setCurrentLocale('fr');
-        $this->productVariant->setName('Variant Name');
+        $documentType = new DocumentType();
+        $documentType->setCode('type_code');
+        $documentType->setCurrentLocale('fr');
+        $this->assertEquals('type_code', $documentType->getCode());
+
+        return $documentType;
     }
 
-    public function testAddProductVariant()
+    /**
+     * @depends testCreateDocumentType
+     * @param $documentType
+     */
+    public function testSetProductDocumentType(DocumentType $documentType)
     {
         $productDocument = new ProductDocument();
-        $productDocument->addProductVariant($this->productVariant);
 
-        $this->assertTrue($productDocument->hasProductVariants());
+        $productDocument->setDocumentType($documentType);
+        $this->assertEquals('type_code', $productDocument->getDocumentType()->getCode());
 
         return $productDocument;
+
     }
 
-        public function testRemoveProductVariant()
+    /**
+     * @depends testSetProductDocumentType
+     * @param \Asdoria\SyliusProductDocumentPlugin\Entity\ProductDocument $productDocument
+     */
+    public function testAddProductToDocument(ProductDocument $productDocument)
     {
-        $productDocument = new ProductDocument();
-        $productDocument->addProductVariant($this->productVariant);
-        $this->assertTrue($productDocument->hasProductVariants());
-        $productDocument->removeProductVariant($this->productVariant);
-        $this->assertFalse($productDocument->hasProductVariants());
+        $product = new Product();
+        $product->setCurrentLocale('fr');
+        $product->setName('Product Name');
+        $productDocument->setProduct($product);
+
+        $this->assertEquals('Product Name', $productDocument->getProduct());
     }
 }
