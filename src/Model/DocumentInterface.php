@@ -26,16 +26,6 @@ use Sylius\Component\Resource\Model\ResourceInterface;
 interface DocumentInterface extends ResourceInterface
 {
     /**
-     * @return string
-     */
-    public function getType(): ?string;
-
-    /**
-     * @param string|null $type
-     */
-    public function setType(?string $type): void;
-
-    /**
      * @return \SplFileInfo|null
      */
     public function getFile(): ?\SplFileInfo;
@@ -59,15 +49,4 @@ interface DocumentInterface extends ResourceInterface
      * @param string|null $path
      */
     public function setPath(?string $path): void;
-
-    /**
-     * @return object
-     */
-    public function getOwner();
-
-    /**
-     * @param object|null $owner
-     */
-    public function setOwner($owner): void;
-
 }

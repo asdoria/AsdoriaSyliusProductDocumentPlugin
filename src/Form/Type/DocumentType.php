@@ -13,7 +13,9 @@ declare(strict_types=1);
 
 namespace Asdoria\SyliusProductDocumentPlugin\Form\Type;
 
+use Asdoria\SyliusPictogramPlugin\Form\Type\PictogramGroupTranslationType;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
+use Sylius\Bundle\ResourceBundle\Form\Type\ResourceTranslationsType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -24,7 +26,7 @@ use Symfony\Component\Form\FormBuilderInterface;
  *
  * @author  Philippe Vesin <pve.asdoria@gmail.com>
  */
-abstract class DocumentType extends AbstractResourceType
+class DocumentType extends AbstractResourceType
 {
     /**
      * {@inheritdoc}
@@ -32,14 +34,11 @@ abstract class DocumentType extends AbstractResourceType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('type', TextType::class, [
-                'label' => 'asdoria.form.document.type',
-                'required' => false,
-            ])
-            ->add('file', FileType::class, [
-                'label' => 'asdoria.form.document.file',
-            ])
-        ;
+            ->add('code')
+            ->add('translations', ResourceTranslationsType::class, [
+                'entry_type' => DocumentTypeTranslationType::class,
+                'label'      => 'asdoria.form.document_type.translations',
+            ]);
     }
 
     /**
@@ -47,6 +46,6 @@ abstract class DocumentType extends AbstractResourceType
      */
     public function getBlockPrefix(): string
     {
-        return 'asdoria_document';
+        return 'asdoria_document_type';
     }
 }

@@ -11,7 +11,7 @@ use Sylius\Component\Product\Model\ProductInterface;
  *
  * @author  Hugo Duval <hugo.duval@asdoria.com>
  */
-trait ProductAwareTrait
+trait ProductTrait
 {
     /**
      * @var ProductInterface|null

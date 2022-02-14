@@ -7,7 +7,10 @@
             <generator strategy="AUTO" />
         </id>
 
-        <field name="type" column="type" nullable="true" />
+        <many-to-one field="documentType" target-entity="Asdoria\SyliusProductDocumentPlugin\Model\DocumentTypeInterface"  inversed-by="productDocuments" >
+            <join-column name="document_type_id" referenced-column-name="id" nullable="false" />
+        </many-to-one>
+
         <field name="path" />
 
         <many-to-one field="product" target-entity="Sylius\Component\Product\Model\ProductInterface" inversed-by="productDocuments">

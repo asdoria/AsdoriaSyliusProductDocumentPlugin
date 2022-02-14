@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Asdoria\SyliusProductDocumentPlugin\Model;
 
 
+use Asdoria\SyliusProductDocumentPlugin\Model\Aware\DocumentTypeAwareInterface;
 use Asdoria\SyliusProductDocumentPlugin\Model\Aware\ProductAwareInterface;
 use Sylius\Component\Resource\Model\TimestampableInterface;
 
@@ -13,6 +14,10 @@ use Sylius\Component\Resource\Model\TimestampableInterface;
  *
  * @author  Hugo Duval <hugo.duval@asdoria.com>
  */
-interface ProductDocumentInterface extends DocumentInterface, ProductAwareInterface, TimestampableInterface
+interface ProductDocumentInterface extends
+    DocumentInterface,
+    ProductAwareInterface,
+    TimestampableInterface,
+    DocumentTypeAwareInterface
 {
 }

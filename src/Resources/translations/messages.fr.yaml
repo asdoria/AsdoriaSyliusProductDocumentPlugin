@@ -1,4 +1,9 @@
 asdoria:
+    menu:
+        admin:
+            main:
+                document_type:
+                    header: Type de Documents
     ui:
         documents: Documents
         download_documents: Télécharger les documents

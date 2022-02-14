@@ -1,4 +1,9 @@
 services:
+    asdoria_product_document.listener.admin.menu_builder:
+        class: Asdoria\SyliusProductDocumentPlugin\Menu\AdminMenuListener
+        tags:
+            - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addAdminMenuItems }
+
     asdoria_product_document.menu.listener.product_form_menu:
         class: Asdoria\SyliusProductDocumentPlugin\Menu\ProductFormMenuListener
         tags:

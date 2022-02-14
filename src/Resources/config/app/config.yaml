@@ -1,3 +1,7 @@
+imports:
+    - "@AsdoriaSyliusProductDocumentPlugin/Resources/config/grids/*.yaml"
+
+
 doctrine_migrations:
     migrations_paths:
         'Asdoria\SyliusProductDocumentPlugin\Migrations': '@AsdoriaSyliusProductDocumentPlugin/Migrations'

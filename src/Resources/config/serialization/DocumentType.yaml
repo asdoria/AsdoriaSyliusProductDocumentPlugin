@@ -1,4 +1,4 @@
-Asdoria\SyliusProductDocumentPlugin\Entity\ProductDocument:
+Asdoria\SyliusProductDocumentPlugin\Entity\DocumentType:
     attributes:
         id:
             groups:
@@ -6,7 +6,9 @@ Asdoria\SyliusProductDocumentPlugin\Entity\ProductDocument:
                 - shop:product:read
                 - admin:product_document:read
                 - admin:product_document:create
-        path:
+                - admin:document_type:read
+                - admin:document_type:create
+        code:
             groups:
                 - admin:product:read
                 - shop:product:read
@@ -14,7 +16,9 @@ Asdoria\SyliusProductDocumentPlugin\Entity\ProductDocument:
                 - admin:product:update
                 - admin:product_document:read
                 - admin:product_document:create
-        documentType:
+                - admin:document_type:read
+                - admin:document_type:create
+        name:
             groups:
                 - admin:product:read
                 - shop:product:read
@@ -22,19 +26,5 @@ Asdoria\SyliusProductDocumentPlugin\Entity\ProductDocument:
                 - admin:product:update
                 - admin:product_document:read
                 - admin:product_document:create
-        updatedAt:
-            groups:
-                - admin:product:read
-                - shop:product:read
-                - admin:product:create
-                - admin:product:update
-                - admin:product_document:read
-                - admin:product_document:create
-        createdAt:
-            groups:
-                - admin:product:read
-                - shop:product:read
-                - admin:product:create
-                - admin:product:update
-                - admin:product_document:read
-                - admin:product_document:create
+                - admin:document_type:read
+                - admin:document_type:create

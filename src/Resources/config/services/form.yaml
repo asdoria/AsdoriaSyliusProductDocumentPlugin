@@ -1,5 +1,7 @@
 parameters:
-    sylius.form.type.product_document.validation_groups: [asdoria_product_document, sylius]
+    asdoria.form.type.product_document.validation_groups: [asdoria_product_document, sylius]
+    asdoria.form.type.document_type.validation_groups: [asdoria_product_document, sylius]
+    asdoria.form.type.document_type_translation.validation_groups: [asdoria_product_document, sylius]
 
 services:
     asdoria_product_document.form.extension.type.product:
@@ -11,6 +13,22 @@ services:
         class: Asdoria\SyliusProductDocumentPlugin\Form\Type\ProductDocumentType
         arguments:
             $dataClass: '%asdoria.model.product_document.class%'
-            $validationGroups: '%sylius.form.type.product_document.validation_groups%'
+            $validationGroups: '%asdoria.form.type.product_document.validation_groups%'
+        tags:
+            - { name: form.type }
+
+    asdoria_product_document.form.type.document_type:
+        class: Asdoria\SyliusProductDocumentPlugin\Form\Type\DocumentType
+        arguments:
+            - '%asdoria.model.document_type.class%'
+            - '%asdoria.form.type.document_type.validation_groups%'
+        tags:
+            - { name: form.type }
+
+    asdoria_product_document.form.type.document_type_translation:
+        class: Asdoria\SyliusProductDocumentPlugin\Form\Type\DocumentTypeTranslationType
+        arguments:
+            - '%asdoria.model.document_type_translation.class%'
+            - '%asdoria.form.type.document_type_translation.validation_groups%'
         tags:
             - { name: form.type }

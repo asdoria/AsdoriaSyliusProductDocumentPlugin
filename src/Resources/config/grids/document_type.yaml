@@ -1,0 +1,36 @@
+sylius_grid:
+    grids:
+        asdoria_admin_document_type:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: '%asdoria.model.document_type.class%'
+            sorting:
+                position: asc
+            fields:
+                code:
+                    type: string
+                    label: sylius.ui.code
+                name:
+                    type: string
+                    label: sylius.ui.name
+                    sortable: translations.name
+                position:
+                    type: string
+                    label: sylius.ui.position
+                    sortable: position
+            actions:
+                main:
+                    create:
+                        type: create
+                item:
+                    update:
+                        type: update
+                    delete:
+                        type: delete
+            filters:
+                search:
+                    type: string
+                    label: sylius.ui.search
+                    options:
+                        fields: [ translations.name ]

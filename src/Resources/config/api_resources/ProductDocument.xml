@@ -41,7 +41,7 @@
 
         <property name="id" identifier="true" writable="false" />
         <property name="path" required="true" writable="true" />
-        <property name="type" writable="true" />
+        <property name="documentType" writable="true" />
         <property name="updatedAt" />
         <property name="createdAt" />
     </resource>

@@ -20,11 +20,6 @@ abstract class Document implements DocumentInterface
     protected $id;
 
     /**
-     * @var string
-     */
-    protected $type;
-
-    /**
      * @var \SplFileInfo
      */
     protected $file;
@@ -45,22 +40,6 @@ abstract class Document implements DocumentInterface
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     /**
@@ -109,21 +88,5 @@ abstract class Document implements DocumentInterface
     public function hasPath(): bool
     {
         return null !== $this->path;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getOwner()
-    {
-        return $this->owner;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setOwner($owner): void
-    {
-        $this->owner = $owner;
     }
 }

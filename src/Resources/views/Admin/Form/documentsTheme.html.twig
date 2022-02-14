@@ -2,10 +2,10 @@
 
 {% block asdoria_product_document_widget %}
     {% apply spaceless %}
-        {{ form_row(form.type) }}
+        {{ form_row(form.documentType) }}
         {% if form.vars.value.path|default(null) is not null %}
-            <a href="{{ path('sylius_admin_product_document_download_file', {'id' : form.vars.value.id}) }}" target="_blank">
-                <canvas id="document" class="ui small bordered image" style="display: block;" data-path="{{ path('sylius_admin_product_document_download_file', {'id' : form.vars.value.id}) }}" ></canvas>
+            <a href="{{ path('asdoria_admin_product_document_download_file', {'id' : form.vars.value.id}) }}" target="_blank">
+                <canvas id="document" class="ui small bordered image" style="display: block;" data-path="{{ path('asdoria_admin_product_document_download_file', {'id' : form.vars.value.id}) }}" ></canvas>
             </a>
 {#            file alternate outline#}
         {% endif %}
