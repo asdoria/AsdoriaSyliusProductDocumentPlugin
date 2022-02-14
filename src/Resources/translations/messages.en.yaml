@@ -3,14 +3,21 @@ asdoria:
         admin:
             main:
                 document_type:
-                    header: Type de Documents
+                    header: Document Types
     ui:
         documents: Documents
-        download_documents: Télécharger les documents
+        document_types: Document Types
+        download_documents: Downloads documents
+        edit_document_type: Edit Document type
+        new_document_type: Create a new document type
     form:
         product:
             documents: Documents
+        product_document:
+            document_type: Type de document
         document:
             type: Type
             file: Fichier
             preview: Voir le document
+        document_type:
+            name: Name

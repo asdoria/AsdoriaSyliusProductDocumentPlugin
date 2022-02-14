@@ -24,7 +24,7 @@ class ProductDocumentType extends AbstractResourceType
     {
         $builder
             ->add('documentType', EntityType::class, [
-                'label' => 'asdoria.form.product_docment.document_type',
+                'label' => 'asdoria.form.product_document.document_type',
                 'class' => DocumentType::class,
             ])
             ->add('file', FileType::class, [

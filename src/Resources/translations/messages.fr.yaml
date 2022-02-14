@@ -6,11 +6,18 @@ asdoria:
                     header: Type de Documents
     ui:
         documents: Documents
+        document_types: Types de documents
         download_documents: Télécharger les documents
+        edit_document_type: Modifier le type de document
+        new_document_type: Enregistrer un nouveau type de document
     form:
         product:
             documents: Documents
+        product_document:
+            document_type: Type de document
         document:
             type: Type
             file: Fichier
             preview: Voir le document
+        document_type:
+            name: Nom
