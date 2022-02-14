@@ -38,7 +38,14 @@ Asdoria\SyliusProductDocumentPlugin\AsdoriaSyliusProductDocumentPlugin::class =>
 imports:
     - { resource: "@AsdoriaSyliusProductDocumentPlugin/Resources/config/app/config.yaml" }
 ```
-6. In `src/Entity/Product/Product.php`
+
+6. Import plugin routes in `config/routes.yaml`
+```yaml
+asdoria_product_document:
+    resource: "@AsdoriaSyliusProductDocumentPlugin/Resources/config/routing.yaml"
+```
+
+7. In `src/Entity/Product/Product.php`
 
 ```PHP
 namespace App\Entity\Product;
@@ -81,7 +88,7 @@ class Product extends BaseProduct implements ProductInterface, ProductDocumentsA
     }
 }
 ```
-Add to Product xml mapping
+8. Add to Product xml mapping
 ```XML
 <one-to-many field="productDocuments" target-entity="Asdoria\SyliusProductDocumentPlugin\Model\ProductDocumentInterface" mapped-by="product" orphan-removal="true">
     <cascade>
