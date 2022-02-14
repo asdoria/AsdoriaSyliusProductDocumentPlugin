@@ -1,0 +1,2 @@
+imports:
+    - { resource: "@AsdoriaSyliusProductDocumentPlugin/Resources/config/app/config.yaml" }
