@@ -4,9 +4,9 @@
         <div class="ui very relaxed horizontal list centered">
             {% for document in product.productDocuments %}
                 <div class="item">
-                    <a class="ui labeled icon button" href="{{ document.path|getDocumentPath }}">
+                    <a class="ui labeled icon button" href="{{ path('asdoria_shop_product_document_download_file', {'path' : document.path}) }}">
                         <i class="download icon"></i>
-                        {{ document.type }}
+                        {{ document.documentType.name }}
                     </a>
                 </div>
             {% endfor %}

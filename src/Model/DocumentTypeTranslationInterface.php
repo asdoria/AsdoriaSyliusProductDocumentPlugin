@@ -7,8 +7,10 @@ use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\TranslationInterface;
 
 /**
- * Interface PictogramTranslationInterface
+ * Interface DocumentTypeTranslationInterface
  * @package Asdoria\SyliusProductDocumentPlugin\Model
+ *
+ * @author  Philippe Vesin <pve.asdoria@gmail.com>
  */
 interface DocumentTypeTranslationInterface extends ResourceInterface, TranslationInterface
 {

@@ -1,0 +1,21 @@
+<div id="document" class="ui styled fluid accordion">
+    <div class="title">
+        <i class="dropdown icon"></i>
+        {{ 'asdoria.ui.download_documents'|trans }}
+    </div>
+    <div class="content">
+        {% if product.productDocuments|length >= 1 %}
+            <div class="ui small documents">
+                {% for productDocument in product.productDocuments %}
+                    {% set path = path('asdoria_shop_product_document_download_file', {'path' : productDocument.path}) %}
+                    <div class="ui image">
+                        <a href="{{ path('asdoria_admin_product_document_download_file', {'id' : form.vars.value.id}) }}" target="_blank">
+                            <i class="bordered icon file alternate outline huge" ></i>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</div>
+

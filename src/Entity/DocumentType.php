@@ -8,10 +8,8 @@ use Asdoria\SyliusProductDocumentPlugin\Model\ProductDocumentInterface;
 use Asdoria\SyliusProductDocumentPlugin\Traits\DocumentTypeTrait;
 use Asdoria\SyliusProductDocumentPlugin\Model\DocumentTypeInterface;
 use Asdoria\SyliusProductDocumentPlugin\Model\DocumentTypeTranslationInterface;
-use Asdoria\SyliusProductDocumentPlugin\Model\PictogramTranslationInterface;
 use Asdoria\SyliusProductDocumentPlugin\Traits\CodeTrait;
 use Asdoria\SyliusProductDocumentPlugin\Traits\NamingTrait;
-use Asdoria\SyliusProductDocumentPlugin\Traits\PictogramsTrait;
 use Asdoria\SyliusProductDocumentPlugin\Traits\ProductDocumentsTrait;
 use Asdoria\SyliusProductDocumentPlugin\Traits\ResourceTrait;
 use Asdoria\SyliusProductDocumentPlugin\Traits\SortableTrait;
@@ -62,7 +60,7 @@ class DocumentType implements DocumentTypeInterface
      */
     public function getTranslation(?string $locale = null): TranslationInterface
     {
-        /** @var PictogramTranslationInterface $translation */
+        /** @var DocumentTypeTranslationInterface $translation */
         $translation = $this->doGetTranslation($locale);
 
         return $translation;

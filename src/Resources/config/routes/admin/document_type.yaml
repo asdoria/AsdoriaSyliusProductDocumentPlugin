@@ -1,0 +1,14 @@
+asdoria_admin_document_type:
+    resource: |
+        alias: asdoria.document_type
+        section: admin
+        templates: "@SyliusAdmin\\Crud"
+        except: ['show']
+        redirect: index
+        grid: asdoria_admin_document_type
+        permission: true
+        vars:
+           all:
+             templates:
+                form: '@AsdoriaSyliusProductDocumentPlugin/Admin/DocumentType/_form.html.twig'
+    type: sylius.resource
