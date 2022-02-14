@@ -1,24 +1,3 @@
-asdoria_admin_product_document_download_file:
-    path: /product-documents/{id}/download
-    methods: [ GET ]
-    defaults:
-        _controller: asdoria.controller.product_document:downloadAction
-        _sylius:
-            section: admin
-    options:
-        expose: true
-
-asdoria_admin_document_type:
-    resource: |
-        alias: asdoria.document_type
-        section: admin
-        templates: "@SyliusAdmin\\Crud"
-        except: ['show']
-        redirect: index
-        grid: asdoria_admin_document_type
-        permission: true
-        vars:
-           all:
-             templates:
-                form: '@AsdoriaSyliusProductDocumentPlugin/Admin/DocumentType/_form.html.twig'
-    type: sylius.resource
+asdoria_product_document_admin_directory:
+    resource: 'admin/'
+    type: directory

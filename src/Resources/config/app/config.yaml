@@ -14,18 +14,11 @@ sylius_ui:
                     template: '@AsdoriaSyliusProductDocumentPlugin/Shop/Product/Show/_documents.html.twig'
                     context: {}
                     priority: 30
-        sylius.admin.product.update.javascripts:
+        asdoria.admin.document_type.index.javascripts:
             blocks:
-                asdoria_documents_javascripts:
+                asdoria_document_type_javascripts:
                     template: "@AsdoriaSyliusProductDocumentPlugin/Admin/_javascripts.html.twig"
-                    priority: 15
-        sylius.admin.product.create.javascripts:
-            blocks:
-                asdoria_documents_javascripts:
-                    template: "@AsdoriaSyliusProductDocumentPlugin/Admin/_javascripts.html.twig"
-                    priority: 15
-
-
+                    priority: 10
 framework:
     serializer:
         mapping:

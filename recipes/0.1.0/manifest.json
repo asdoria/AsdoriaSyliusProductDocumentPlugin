@@ -1,0 +1,10 @@
+{
+  "bundles": {
+    "Asdoria\\SyliusProductDocumentPlugin\\AsdoriaSyliusProductDocumentPlugin": [
+      "all"
+    ]
+  },
+  "copy-from-recipe": {
+    "config/": "%CONFIG_DIR%/"
+  }
+}

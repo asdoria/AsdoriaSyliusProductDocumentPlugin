@@ -1,0 +1,2 @@
+asdoria_product_document:
+    resource: "@AsdoriaSyliusProductDocumentPlugin/Resources/config/routing.yaml"

@@ -16,13 +16,18 @@ sylius_grid:
                     label: sylius.ui.name
                     sortable: translations.name
                 position:
-                    type: string
+                    type: twig
                     label: sylius.ui.position
                     sortable: position
+                    path: .
+                    options:
+                        template: "@AsdoriaSyliusProductDocumentPlugin/Admin/Grid/Field/document_type_position.html.twig"
             actions:
                 main:
                     create:
                         type: create
+                    update_positions:
+                        type: update_document_type_positions
                 item:
                     update:
                         type: update

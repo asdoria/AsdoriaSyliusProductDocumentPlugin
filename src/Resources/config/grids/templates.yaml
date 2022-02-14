@@ -1,0 +1,4 @@
+sylius_grid:
+    templates:
+        action:
+            update_document_type_positions: "@AsdoriaSyliusProductDocumentPlugin/Admin/Grid/Action/DocumentType/updatePositions.html.twig"

@@ -1,4 +1,3 @@
-// import * as PDFJS from 'pdfjs-dist/build/pdf';
 import * as PDFJS from 'pdfjs-dist/webpack';
 
 /**

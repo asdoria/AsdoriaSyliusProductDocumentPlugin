@@ -1,0 +1,9 @@
+<form class="asdoria-update-document-types"
+      action="{{ path('asdoria_admin_ajax_document_type_update_position') }}"
+      data-csrf-token="{{ csrf_token('update-document-type-position') }}"
+>
+    <button class="ui labeled loadable icon button sylius-save-position" type="submit">
+        <i class="icon checkmark"></i>
+        {{ 'sylius.ui.save_positions'|trans }}
+    </button>
+</form>

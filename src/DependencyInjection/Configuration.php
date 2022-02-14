@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Asdoria\SyliusProductDocumentPlugin\DependencyInjection;
 
+use Asdoria\SyliusProductDocumentPlugin\Controller\DocumentTypeController;
 use Asdoria\SyliusProductDocumentPlugin\Controller\ProductDocumentController;
 use Asdoria\SyliusProductDocumentPlugin\Entity\DocumentType;
 use Asdoria\SyliusProductDocumentPlugin\Entity\DocumentTypeTranslation;
@@ -59,7 +60,7 @@ final class Configuration implements ConfigurationInterface
                                             ->addDefaultsIfNotSet()
                                                 ->children()
                                                     ->scalarNode('model')->defaultValue(DocumentType::class)->cannotBeEmpty()->end()
-                                                    ->scalarNode('controller')->defaultValue(ResourceController::class)->cannotBeEmpty()->end()
+                                                    ->scalarNode('controller')->defaultValue(DocumentTypeController::class)->cannotBeEmpty()->end()
                                                     ->scalarNode('repository')->cannotBeEmpty()->end()
                                                     ->scalarNode('factory')->defaultValue(Factory::class)->end()
                                                     ->scalarNode('form')->defaultValue(DocumentFormType::class)->cannotBeEmpty()->end()

@@ -1,0 +1,8 @@
+asdoria_admin_ajax_document_type_update_position:
+    path: /document-types/update
+    methods: [PUT]
+    defaults:
+        _controller: asdoria.controller.document_type:updatePositionsAction
+        _format: json
+        _sylius:
+            permission: true

@@ -12,7 +12,7 @@ asdoria:
         new_document_type: Enregistrer un nouveau type de document
     form:
         product:
-            documents: Documents
+            documents: Gestion des documents
         product_document:
             document_type: Type de document
         document:

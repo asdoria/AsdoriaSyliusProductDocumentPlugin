@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Asdoria\SyliusProductDocumentPlugin\Model;
 
 use Asdoria\SyliusProductDocumentPlugin\Model\Aware\DocumentTypeAwareInterface;
-use Asdoria\SyliusProductDocumentPlugin\Model\Aware\PictogramsAwareInterface;
 use Asdoria\SyliusProductDocumentPlugin\Model\Aware\ProductDocumentsAwareInterface;
 use Sylius\Component\Resource\Model\CodeAwareInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
