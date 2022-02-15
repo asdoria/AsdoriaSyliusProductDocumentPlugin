@@ -3,6 +3,12 @@
     "type": "symfony-bundle",
     "description": "Asdoria Product Document",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Asdoria",
+            "email": "developpeurs@asdoria.com"
+        }
+    ],
     "keywords": [
         "product",
         "asdoria",
@@ -13,22 +19,18 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^7.3",
-        "sylius/sylius": "^1.9",
-        "symfony/dotenv": "^5.4"
+        "php": "^7.4",
+        "sylius/sylius": "^1.9"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5"
     },
     "config": {
         "sort-packages": true,
-        "gitlab-domains": [
-            "gitlab.asdoria.org"
-        ]
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.10-dev"
+            "dev-master": "0.1.0-dev"
         }
     },
     "autoload": {
