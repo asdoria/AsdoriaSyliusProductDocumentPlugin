@@ -6,9 +6,7 @@ namespace Tests\Asdoria\SyliusProductDocumentPlugin\PHPUnit\Entity;
 use App\Entity\Product\Product;
 use Asdoria\SyliusProductDocumentPlugin\Entity\DocumentType;
 use Asdoria\SyliusProductDocumentPlugin\Entity\ProductDocument;
-use Gedmo\Translatable\Entity\Translation;
 use PHPUnit\Framework\TestCase;
-use Sylius\Component\Core\Model\ProductVariant;
 
 /**
  * Class ProductDocumentTest
@@ -19,22 +17,12 @@ use Sylius\Component\Core\Model\ProductVariant;
  */
 class ProductDocumentTest extends TestCase
 {
-    public function testCreateDocumentType()
+
+
+    public function testSetProductDocumentType()
     {
         $documentType = new DocumentType();
         $documentType->setCode('type_code');
-        $documentType->setCurrentLocale('fr');
-        $this->assertEquals('type_code', $documentType->getCode());
-
-        return $documentType;
-    }
-
-    /**
-     * @depends testCreateDocumentType
-     * @param $documentType
-     */
-    public function testSetProductDocumentType(DocumentType $documentType)
-    {
         $productDocument = new ProductDocument();
 
         $productDocument->setDocumentType($documentType);
@@ -56,5 +44,21 @@ class ProductDocumentTest extends TestCase
         $productDocument->setProduct($product);
 
         $this->assertEquals('Product Name', $productDocument->getProduct());
+
     }
+
+
+    public function testSetFile()
+    {
+        $productDocument = new ProductDocument();
+        $file = new \SplFileObject(__FILE__);
+
+        $productDocument->setFile($file);
+        $this->assertTrue($productDocument->hasFile());
+
+        $linkedFile = $productDocument->getFile();
+        $this->assertFileEquals($file->getRealPath(), $linkedFile->getRealPath());
+    }
+
+
 }

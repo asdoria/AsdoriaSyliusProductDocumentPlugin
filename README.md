@@ -3,7 +3,7 @@
 
 ![Example of a product's documents customization](doc/asdoria.jpg)
 
-<h1 align="center">Asdoria Pictogram Bundle</h1>
+<h1 align="center">Asdoria Product Document Plugin</h1>
 
 <p align="center">A plugin to create, group and associate documents with products</p>
 
@@ -11,25 +11,21 @@
 
 + Create type of documents 
 + Easily customize which documents to display from the product configuration page
-+ Document are automatically displayed on the product's store page
++ Document are automatically displayed on the product's store page and downloaded there
 
 <div style="max-width: 75%; height: auto; margin: auto">
 
-![Example of a product's documents customization](doc/product.jpg)
+![Example of a product's documents customization](doc/front.png)
 
 </div>
 
 
 <div style="max-width: 75%; height: auto; margin: auto">
 
-Toggling the documents to display for a product
-![Example of a product's documents customization](doc/product.gif)
+Creating a document type and customizing its content in the product edit page.
+![Example of a product's documents customization](doc/document.gif)
 
 </div>
-
-
-
-
 
 ## Installation
 
@@ -50,7 +46,7 @@ Toggling the documents to display for a product
 3. Add the bundle in `config/bundles.php`. You must put it ABOVE `SyliusGridBundle`
 
 ```PHP
-Asdoria\SyliusPictogramPlugin\AsdoriaSyliusProductDocumentPlugin::class => ['all' => true],
+Asdoria\SyliusProductDocumentPlugin\AsdoriaSyliusProductDocumentPlugin::class => ['all' => true],
 [...]
 Sylius\Bundle\GridBundle\SyliusGridBundle::class => ['all' => true],
 ```
@@ -65,22 +61,17 @@ asdoria_product_document:
 5. Import config in `config/packages/_sylius.yaml`
 ```yaml
 imports:
-    - { resource: "@AsdoriaSyliusProductDocumentPlugin/Resources/config/config.yaml"}
+    - { resource: "@AsdoriaSyliusProductDocumentPlugin/Resources/config/app/config.yaml"}
 ```
-6. In `src/Entity/Product/Product.php`. Import `Asdoria\SyliusPictogramPlugin\Traits\PictogramsTrait` and initialize a document collection in the constructor
+6. In `src/Entity/Product/Product.php`. Import the following classes, traits and methods.
 
 ```PHP
-
-// ...
-
 use Asdoria\SyliusProductDocumentPlugin\Model\Aware\ProductDocumentsAwareInterface;
+use Asdoria\SyliusProductDocumentPlugin\Model\ProductDocumentInterface;
 use Asdoria\SyliusProductDocumentPlugin\Traits\ProductDocumentsTrait;
+use Sylius\Component\Product\Model\ProductTranslationInterface;
 
-/**
- * @ORM\Entity
- * @ORM\Table(name="sylius_product")
- */
-class Product extends BaseProductimplements implements ProductDocumentsAwareInterface
+class Product extends BaseProduct implements  ProductDocumentsAwareInterface
 {
     use ProductDocumentsTrait;
 
@@ -89,7 +80,7 @@ class Product extends BaseProductimplements implements ProductDocumentsAwareInte
         parent::__construct();
         $this->initializeProductDocumentsCollection();
     }
-
+    
     /**
      * @param ProductDocumentInterface $productDocument
      */
@@ -110,8 +101,7 @@ class Product extends BaseProductimplements implements ProductDocumentsAwareInte
             $productDocument->setProduct(null);
             $this->productDocuments->removeElement($productDocument);
         }
-    }
-    ...
+    }    
 }
 ```
 7. run `php bin/console do:mi:mi` to update the database schema
@@ -127,9 +117,9 @@ class Product extends BaseProductimplements implements ProductDocumentsAwareInte
 
 ## Usage
 
-1. In the back office, under `Catalog`, enter `Document Types`. Create a type of document using a unique code
+1. In the back office, under `Catalog`, enter `Document Types`. Create a type of document using a unique code.
 2. In `Document Types`, click `Managing Document Type` to create/delete type for this group
-3. Go to a product's edit page, then click the `Documents` tab in the sidebar. Here you can upload which documents you wish to display
+3. Go to a product's edit page, then click the `Documents` tab in the sidebar. Here you can add documents type then upload which documents you wish to display for each.
 
 
 

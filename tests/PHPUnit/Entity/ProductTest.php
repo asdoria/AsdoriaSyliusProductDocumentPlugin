@@ -5,6 +5,7 @@ namespace Tests\Asdoria\SyliusProductDocumentPlugin\PHPUnit\Entity;
 
 use App\Entity\Product\Product;
 use Asdoria\SyliusProductDocumentPlugin\Entity\DocumentType;
+use Asdoria\SyliusProductDocumentPlugin\Entity\DocumentTypeTranslation;
 use Asdoria\SyliusProductDocumentPlugin\Entity\ProductDocument;
 use Doctrine\Common\Collections\ArrayCollection;
 use PHPUnit\Framework\TestCase;

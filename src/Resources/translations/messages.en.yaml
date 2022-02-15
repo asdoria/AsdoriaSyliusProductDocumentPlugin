@@ -7,17 +7,17 @@ asdoria:
     ui:
         documents: Documents
         document_types: Document Types
-        download_documents: Downloads documents
+        download_documents: Download documents
         edit_document_type: Edit Document type
         new_document_type: Create a new document type
     form:
         product:
             documents: Documents
         product_document:
-            document_type: Type de document
+            document_type: Document Type
         document:
             type: Type
-            file: Fichier
-            preview: Voir le document
+            file: File
+            preview: See file
         document_type:
             name: Name
