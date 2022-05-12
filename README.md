@@ -29,21 +29,9 @@ Creating a document type and customizing its content in the product edit page.
 
 ## Installation
 
----
-1. Add the repository to composer.json
+1. run `composer require asdoria/sylius-product-document-plugin`
 
-```JSON
-"repositories": [
-    {
-        "type": "git",
-        "url": "https://github.com/asdoria/AsdoriaSyliusProductDocumentPlugin.git"
-    }
-],
-```
-2. run `composer require asdoria/sylius-product-document-plugin`
-
-
-3. Add the bundle in `config/bundles.php`. You must put it ABOVE `SyliusGridBundle`
+2. Add the bundle in `config/bundles.php`. You must put it ABOVE `SyliusGridBundle`
 
 ```PHP
 Asdoria\SyliusProductDocumentPlugin\AsdoriaSyliusProductDocumentPlugin::class => ['all' => true],
@@ -51,19 +39,19 @@ Asdoria\SyliusProductDocumentPlugin\AsdoriaSyliusProductDocumentPlugin::class =>
 Sylius\Bundle\GridBundle\SyliusGridBundle::class => ['all' => true],
 ```
 
-4. Import routes in `config/routes.yaml`
+3. Import routes in `config/routes.yaml`
 
 ```yaml
 asdoria_product_document:
     resource: "@AsdoriaSyliusProductDocumentPlugin/Resources/config/routing.yaml"
 ```
 
-5. Import config in `config/packages/_sylius.yaml`
+4. Import config in `config/packages/_sylius.yaml`
 ```yaml
 imports:
     - { resource: "@AsdoriaSyliusProductDocumentPlugin/Resources/config/app/config.yaml"}
 ```
-6. In `src/Entity/Product/Product.php`. Import the following classes, traits and methods.
+5. In `src/Entity/Product/Product.php`. Import the following classes, traits and methods.
 
 ```PHP
 use Asdoria\SyliusProductDocumentPlugin\Model\Aware\ProductDocumentsAwareInterface;
@@ -104,9 +92,10 @@ class Product extends BaseProduct implements  ProductDocumentsAwareInterface
     }    
 }
 ```
-7. run `php bin/console do:mi:mi` to update the database schema
+6. run `php bin/console do:mi:mi` to update the database schema
 
-8. Add to Product xml mapping
+
+7. Add to Product xml mapping
 ```XML
 <one-to-many field="productDocuments" target-entity="Asdoria\SyliusProductDocumentPlugin\Model\ProductDocumentInterface" mapped-by="product" orphan-removal="true">
     <cascade>
@@ -117,9 +106,8 @@ class Product extends BaseProduct implements  ProductDocumentsAwareInterface
 
 ## Usage
 
-1. In the back office, under `Catalog`, enter `Document Types`. Create a type of document using a unique code.
-2. In `Document Types`, click `Managing Document Type` to create/delete type for this group
-3. Go to a product's edit page, then click the `Documents` tab in the sidebar. Here you can add documents type then upload which documents you wish to display for each.
+1. In the back office, under `Catalog`, enter `Document Types`. Create a type of document using a unique code. 
+2. Go to a product's edit page, then click the `Documents` tab in the sidebar. Here you can add documents type then upload which document you wish to display for each.
 
 
 

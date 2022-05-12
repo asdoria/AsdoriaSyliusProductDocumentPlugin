@@ -20,7 +20,7 @@ trait NamingTrait
     /**
      * @return string|null
      */
-    public function __toString(): ?string
+    public function __toString(): string
     {
         return $this->getName();
     }
