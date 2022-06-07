@@ -1,0 +1,6 @@
+Asdoria\SyliusProductDocumentPlugin\Entity\DocumentTypeTranslation:
+    properties:
+        name:
+            -   NotBlank:
+                    groups: [ sylius ]
+                    message: 'asdoria.ui.document_type_translation.name.not_blank'

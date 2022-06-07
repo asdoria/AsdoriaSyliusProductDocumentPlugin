@@ -1,0 +1,14 @@
+Asdoria\SyliusProductDocumentPlugin\Entity\DocumentType:
+    constraints:
+        -   Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+                fields: [ code ]
+                groups: [ sylius ]
+                message: 'asdoria.ui.document_type.code.unique'
+    properties:
+        code:
+            -   NotBlank:
+                    groups: [ sylius ]
+                    message: 'asdoria.ui.document_type.code.not_blank'
+        translations:
+            -   Valid:
+                    groups: [ sylius ]

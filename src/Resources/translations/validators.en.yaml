@@ -1,0 +1,9 @@
+asdoria:
+    ui:
+        document_type:
+            code:
+                unique: This code is already taken.
+                not_blank: The "Code" field can not be empty.
+        document_type_translation:
+            name:
+                not_blank: The "Name" field can not be empty.
