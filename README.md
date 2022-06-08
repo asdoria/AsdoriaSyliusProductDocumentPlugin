@@ -94,14 +94,6 @@ class Product extends BaseProduct implements  ProductDocumentsAwareInterface
 ```
 6. run `php bin/console do:mi:mi` to update the database schema
 
-
-7. Add to Product xml mapping
-```XML
-<one-to-many field="productDocuments" target-entity="Asdoria\SyliusProductDocumentPlugin\Model\ProductDocumentInterface" mapped-by="product" orphan-removal="true">
-    <cascade>
-        <cascade-all/>
-    </cascade>
-</one-to-many>
 ```
 
 ## Usage

@@ -1,0 +1,9 @@
+asdoria:
+    ui:
+        document_type:
+            code:
+                unique: Ce code existe déjà.
+                not_blank: Le champs "Code" ne peut pas être vide.
+        document_type_translation:
+            name:
+                not_blank: Le champs "Name" ne peut pas être vide.

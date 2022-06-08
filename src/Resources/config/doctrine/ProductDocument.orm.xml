@@ -15,7 +15,7 @@
 
         <many-to-one field="product" target-entity="Sylius\Component\Product\Model\ProductInterface" inversed-by="productDocuments">
             <cascade>
-                <cascade-all/>
+                <cascade-refresh/>
             </cascade>
             <join-column name="product_id" on-delete="CASCADE"/>
         </many-to-one>
