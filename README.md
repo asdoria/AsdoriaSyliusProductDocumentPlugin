@@ -101,7 +101,7 @@ If you want to try to create documents, go on [the admin authentication page](ht
 > **Login:** asdoria <br>
 > **Password:** asdoria
 > 
-Then go on ["Document Type in the back office](https://demo-sylius.asdoria.fr/admin/document-types/) and follow usage lines below.
+Then go on ["Document Type" in the back office](https://demo-sylius.asdoria.fr/admin/document-types/) and follow usage lines below.
 
 Note that we have developed several other open source plugins for Sylius, whose demos and documentation are listed on the [following page](https://asdoria.github.io/).
 
