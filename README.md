@@ -92,9 +92,16 @@ class Product extends BaseProduct implements  ProductDocumentsAwareInterface
     }    
 }
 ```
-6. run `php bin/console do:mi:mi` to update the database schema
+6. run `php bin/console do:mi:mi` to update the database schema`
 
-```
+## Demo
+
+You can see the result for the user here with a cap: [here](https://demo-sylius.asdoria.fr/en_US/products/knitted-wool-blend-green-cap). <br>
+If you want to try to create documents, go on [the admin authentication page](https://demo-sylius.asdoria.fr/admin/) and connect with:
+> **Login:** asdoria <br>
+> **Password:** asdoria
+> 
+Then go on ["Document Type in the back office](https://demo-sylius.asdoria.fr/admin/document-types/) and follow usage lines below.
 
 ## Usage
 
