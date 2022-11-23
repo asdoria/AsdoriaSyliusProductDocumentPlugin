@@ -48,7 +48,7 @@ trait ProductDocumentsTrait
     public function getDocumentsByType(string $type): Collection
     {
         return $this->productDocuments->filter(function (ProductDocumentInterface $document) use ($type): bool {
-            return $type === $document->getType();
+            return $type === $document->getDocumentType()->getCode();
         });
     }
 
