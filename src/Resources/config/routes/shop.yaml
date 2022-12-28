@@ -1,7 +1,7 @@
 asdoria_shop_product_document_download_file:
     path: /media/document/resolve/{path}
     defaults:
-        _controller: asdoria.controller.product_document:downloadAction
+        _controller: asdoria.controller.product_document::downloadAction
         _sylius:
             repository:
                 method: findOneByPath

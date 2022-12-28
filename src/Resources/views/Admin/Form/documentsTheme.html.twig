@@ -1,7 +1,6 @@
 {% extends '@SyliusUi/Form/imagesTheme.html.twig' %}
 
 {% block asdoria_product_document_widget %}
-    {% apply spaceless %}
         {{ form_row(form.documentType) }}
         {% if form.vars.value.path|default(null) is not null %}
             <a href="{{ path('asdoria_admin_product_document_download_file', {'id' : form.vars.value.id}) }}" target="_blank">
@@ -23,5 +22,4 @@
         <div class="ui element">
             {{- form_errors(form.file) -}}
         </div>
-    {% endapply %}
 {% endblock %}
