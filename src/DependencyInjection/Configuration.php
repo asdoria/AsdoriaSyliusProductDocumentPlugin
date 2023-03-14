@@ -36,6 +36,18 @@ final class Configuration implements ConfigurationInterface
             ->children()
                 ->scalarNode('uploader')->defaultValue(Uploader::class)->end()
                 ->scalarNode('driver')->defaultValue(SyliusResourceBundle::DRIVER_DOCTRINE_ORM)->end()
+                ->arrayNode('filesystem')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode('adapter')
+                        ->defaultValue('default')
+                            ->validate()
+                                ->ifNotInArray(['default', 'flysystem', 'gaufrette'])
+                                ->thenInvalid('Expected adapter "default", "flysystem" or "gaufrette", but %s passed.')
+                            ->end()
+                        ->end()
+                    ->end()
+                ->end()
             ->end();
 
         $this->addResourcesProductDocument($rootNode);

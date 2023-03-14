@@ -5,9 +5,12 @@ declare(strict_types=1);
 
 namespace Asdoria\SyliusProductDocumentPlugin\Uploader;
 
+use Asdoria\SyliusProductDocumentPlugin\Adapter\GaufretteFilesystemAdapter;
 use Asdoria\SyliusProductDocumentPlugin\Model\DocumentInterface;
-use Gaufrette\Filesystem;
+use Gaufrette\FilesystemInterface;
 use Psr\Http\Message\StreamInterface;
+use Asdoria\SyliusProductDocumentPlugin\Adapter\FilesystemAdapterInterface;
+
 
 /**
  * Class Uploader
@@ -18,16 +21,22 @@ use Psr\Http\Message\StreamInterface;
 class Uploader implements UploaderInterface
 {
     /**
-     * @var Filesystem
+     * @param FilesystemAdapterInterface $filesystem
      */
-    protected $filesystem;
-
-    /**
-     * @param Filesystem $filesystem
-     */
-    public function __construct(Filesystem $filesystem)
+    public function __construct(        
+        /** @var FilesystemAdapterInterface $filesystem */
+        protected FilesystemAdapterInterface|FilesystemInterface $filesystem
+    )
     {
-        $this->filesystem = $filesystem;
+        if ($this->filesystem instanceof FilesystemInterface) {
+            @trigger_error(sprintf(
+                'Passing Gaufrette\FilesystemInterface as a first argument in %s constructor is deprecated since Sylius 1.12 and will be not possible in Sylius 2.0.',
+                self::class,
+            ), \E_USER_DEPRECATED);
+
+            /** @psalm-suppress DeprecatedClass */
+            $this->filesystem = new GaufretteFilesystemAdapter($this->filesystem);
+        }
     }
 
     /**
@@ -62,7 +71,8 @@ class Uploader implements UploaderInterface
     public function remove(string $path): bool
     {
         if ($this->filesystem->has($path)) {
-            return $this->filesystem->delete($path);
+            $this->filesystem->delete($path);
+            return true;
         }
 
         return false;
@@ -76,7 +86,7 @@ class Uploader implements UploaderInterface
      */
     public function getContent(DocumentInterface $document)
     {
-        $body = $this->filesystem->getAdapter()->read(
+        $body = $this->filesystem->read(
             $document->getPath()
         );
 

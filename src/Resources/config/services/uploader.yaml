@@ -1,11 +1,6 @@
 services:
     #Document
-    asdoria_product_document.media.document_uploader.file_system:
-        class: Gaufrette\Filesystem
-        factory: [ '@knp_gaufrette.filesystem_map' , 'get' ]
-        arguments: [ '%asdoria_product_document.media.document_uploader.filesystem%' ]
-
     asdoria_product_document.media.document_uploader:
         public: true
         class: '%asdoria_product_document.media.document_uploader%'
-        arguments: [ '@asdoria_product_document.media.document_uploader.file_system' ]
+        arguments: [ '@asdoria_product_document.media.document_adapter.file_system' ]

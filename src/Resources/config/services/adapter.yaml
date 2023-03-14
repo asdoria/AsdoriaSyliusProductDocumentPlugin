@@ -1,0 +1,9 @@
+services:
+    asdoria_product_document.fly_system.document_uploader.file_system:
+        class: Asdoria\SyliusProductDocumentPlugin\Adapter\FlysystemFilesystemAdapter
+        arguments: [ '@sylius.document' ]
+        
+    asdoria_product_document.gaufrette.document_uploader.file_system:
+        class: Asdoria\SyliusProductDocumentPlugin\Adapter\GaufretteFilesystemAdapter
+        factory: [ '@knp_gaufrette.filesystem_map' , 'get' ]
+        arguments: [ '%asdoria_product_document.media.document_uploader.filesystem%' ]

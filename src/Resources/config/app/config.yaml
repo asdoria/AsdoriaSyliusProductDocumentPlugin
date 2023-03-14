@@ -34,3 +34,9 @@ knp_gaufrette:
         sylius_document:
             adapter: sylius_document
 
+flysystem:
+    storages:
+        sylius.document:
+            adapter: 'local'
+            options:
+                directory: "%kernel.project_dir%/public/media/document"
