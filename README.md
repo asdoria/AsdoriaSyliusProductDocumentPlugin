@@ -94,6 +94,17 @@ class Product extends BaseProduct implements  ProductDocumentsAwareInterface
 ```
 6. run `php bin/console do:mi:mi` to update the database schema`
 
+7. Gaufrette is no longer used by Sylius in favour of Flysystem. If you want to use Gaufrette in your project, you need
+    to set:
+
+    ```yaml
+    asdoria_sylius_product_document:
+        filesystem:
+            adapter: gaufrette
+    ```
+    
+    in your `config/packages/_sylius.yaml` file.
+
 ## Demo
 
 You can see the result for the user here with a cap: [here](https://demo-sylius.asdoria.fr/en_US/products/knitted-wool-blend-green-cap). <br>
@@ -109,7 +120,4 @@ Note that we have developed several other open source plugins for Sylius, whose 
 
 1. In the back office, under `Catalog`, enter `Document Types`. Create a type of document using a unique code. 
 2. Go to a product's edit page, then click the `Documents` tab in the sidebar. Here you can add documents type then upload which document you wish to display for each.
-
-
-
 
